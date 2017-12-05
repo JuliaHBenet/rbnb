@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205103314) do
+ActiveRecord::Schema.define(version: 20171205081538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 20171205103314) do
     t.string   "facebook_picture_url"
     t.string   "token"
     t.datetime "token_expiry"
-    t.string   "photo"
     t.index ["registration_id"], name: "index_users_on_registration_id", using: :btree
   end
 
