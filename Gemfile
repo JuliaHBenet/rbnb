@@ -8,7 +8,7 @@ gem 'puma'
 gem 'rails', '5.0.6'
 gem 'redis'
 gem 'devise'
-gem 'omniauth-facebook'
+gem 'omniauth-facebook' # setup
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
