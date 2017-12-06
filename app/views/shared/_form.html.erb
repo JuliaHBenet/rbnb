@@ -1,16 +1,7 @@
 <%= simple_form_for(@pet) do |f| %>
-  <% if @pet.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-        <% @pet.errors.full_message.each do |message| %>
-        <li>
-          <%= message %>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 <%= f.input :name %>
+<%= f.input :category %>
+<%= f.input :daily_price, as: :integer %>
 <%= f.submit "Save changes", class: "btn btn-primary" %>
 <% end %>
 
