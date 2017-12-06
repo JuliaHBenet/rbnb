@@ -4,7 +4,12 @@ class PetsController < ApplicationController
   before_action :set_user, only:[:show, :new, :create, :edit, :update, :destroy]
 
   def index
-    @pets = Pet.all
+    @pets = Pet.where.not(latitude: nil, longitude: nil)
+
+    @markers = Gmaps4rails.build_markers(@flats) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
+    end
   end
 
   def show
