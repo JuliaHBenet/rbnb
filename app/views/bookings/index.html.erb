@@ -3,7 +3,7 @@
   <% @bookings.order(start_date: :desc).each do |booking| %>
   <li>
     <h2>
-      Booking #<%= link_to booking.id, booking_path(booking)%>
+      Booking #<%= link_to booking.id, pet_booking_path(booking.pet, booking)%>
     </h2>
     <p>Start date: <%= booking.start_date %></p>
     <p>End date: <%= booking.end_date %></p>
