@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [ :edit, :update, :destroy ]
+
   def index
     @users = User.all #.where(active: true)
   end
@@ -9,7 +10,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
