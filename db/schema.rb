@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206111748) do
+# <<<<<<< HEAD
+# ActiveRecord::Schema.define(version: 20171206111748) do
+# =======
+ActiveRecord::Schema.define(version: 20171206145748) do
+# >>>>>>> 1d250ea5af35e78557893160f00f6b9e801f38c5
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,10 +66,10 @@ ActiveRecord::Schema.define(version: 20171206111748) do
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "owner"
+    t.boolean  "owner",                default: false
     t.integer  "registration_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "facebook_picture_url"

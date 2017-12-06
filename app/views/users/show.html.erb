@@ -1,12 +1,13 @@
 <h1><%= @user.id %> - <%= @user.first_name %> <%= @user.last_name %></h1>
 <ul>
+
 <% if @user.owner %>
-  <%= @user.pets.each do |pet| %>
+  <% @user.pets.each do |pet| %>
   <li>
   <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
   <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
     <h2>
-      <%= link_to pet.name, pet_path(pet) %>
+      <%= link_to pet.name.capitalize, pet_path(pet) %>
     </h2>
   </li>
   <% end %>
