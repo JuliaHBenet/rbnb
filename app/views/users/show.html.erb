@@ -1,4 +1,4 @@
-<h1><%= @user.first_name %></h1>
+<h1><%= @user.id %> - <%= @user.first_name %> <%= @user.last_name %></h1>
 <ul>
 <% if @user.owner %>
   <%= @user.pets.each do |pet| %>
@@ -16,5 +16,5 @@
 <br>
 <% if current_user == @user %>
   <%= link_to "Add a pet", new_pet_path %>
-  <%= link_to "Edit profile", edit_users_path(@user) %>
+  <%= link_to "Edit profile", edit_user_path(@user) %>
 <% end %>
