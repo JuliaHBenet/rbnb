@@ -2,9 +2,7 @@
 
 
 <p>Pet: <%= @booking.pet.name %></p>
-<p>Owner: <%= @booking.pet.owner %></p>
-<!-- <p>Pics: <%= @booking.pet.photos.first %></p>
- -->
+<p>Owner: <%= @booking.pet.user.first_name %></p>
 <p>Start date: <%= @booking.start_date %></p>
 <p>End date: <%= @booking.end_date %></p>
 
