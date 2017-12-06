@@ -1,17 +1,6 @@
 <h1>New booking for <%= @pet.name %></h1>
 
-<%= simple_form_for(@booking) do |f| %>
-  <% if @booking.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-        <% @booking.errors.full_message.each do |message| %>
-        <li>
-          <%= message %>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for [@pet, @booking] do |f| %>
 <%= f.input :start_date, as: :date %>
 <%= f.input :end_date, as: :date %>
 <%= f.submit "Confirm booking", class: "btn btn-primary" %>
