@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
 
-  before_action :set_pet, only:[:show, :new, :create, :edit, :update, :destroy]
+  before_action :set_pet, only:[:show, :edit, :update, :destroy]
   before_action :set_user, only:[:show, :new, :create, :edit, :update, :destroy]
 
   def index
@@ -21,15 +21,17 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(pet_params)
-    @pet.user = @user
+    @pet.user = current_user
     if @pet.save
-      redirect_to user_path(@user)
+      redirect_to user_path(current_user)
     else
       render :new
     end
   end
 
   def edit
+    @user = current_user
+    @pet = Pet.find(params[:id])
   end
 
   def update
