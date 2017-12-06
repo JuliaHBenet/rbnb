@@ -2,8 +2,9 @@
 
 
 <% if registration_signed_in? %>
-  <p> hello pierre <%= current_user.first_name %></p>
+  <p> Hello <%= current_user.first_name %></p>
 <% else %>
+  <p> Hello, please sign in </p>
 <% end %>
 
-<%= render 'shared/footer'  %>
+<%= render 'shared/footer' %>
