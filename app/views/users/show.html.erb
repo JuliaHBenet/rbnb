@@ -16,5 +16,5 @@
 <br>
 <% if current_user == @user %>
   <%= link_to "Add a pet", new_pet_path %>
-  <%= link_to "Edit profile", edit_user_path %>
+  <%= link_to "Edit profile", edit_users_path(@user) %>
 <% end %>
