@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20171206111748) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,14 +32,18 @@ ActiveRecord::Schema.define(version: 20171206111748) do
 
   create_table "pets", force: :cascade do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "category"
     t.integer  "daily_price"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+<<<<<<< HEAD
     t.float    "latitude"
     t.float    "longitude"
     t.string   "address"
+=======
+    t.string   "photo"
+>>>>>>> a279ced4747a01b285f9307897584cf4798dde3f
     t.index ["user_id"], name: "index_pets_on_user_id", using: :btree
   end
 
@@ -61,15 +67,16 @@ ActiveRecord::Schema.define(version: 20171206111748) do
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "owner"
+    t.boolean  "owner",                default: false
     t.integer  "registration_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "facebook_picture_url"
     t.string   "token"
     t.datetime "token_expiry"
+    t.string   "photo"
     t.index ["registration_id"], name: "index_users_on_registration_id", using: :btree
   end
 

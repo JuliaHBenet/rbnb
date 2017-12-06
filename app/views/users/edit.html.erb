@@ -1,2 +1,19 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>Edit user profile</h1>
+<%= simple_form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @user.errors.full_message.each do |message| %>
+        <li>
+          <%= message %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= f.input :first_name %>
+<%= f.input :last_name %>
+<%= f.input :photo %>
+<%= f.submit "Save changes", class: "btn btn-primary" %>
+<% end %>
+<%= link_to "Back to user profile", user_path(@user), class: "btn btn-info"%>

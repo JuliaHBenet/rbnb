@@ -1,0 +1,10 @@
+<h1>Here are all the pets available</h1>
+<ul>
+  <% @pets.each do |pet| %>
+  <li>
+    <h2>
+      <%= link_to pet.name, pet_path(pet) %>
+    </h2>
+  </li>
+  <% end %>
+</ul>
