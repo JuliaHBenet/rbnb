@@ -1,0 +1,13 @@
+<h1>Booking #<%= @booking.id %></h1>
+
+
+<p>Pet: <%= @booking.pet.name %></p>
+<p>Owner: <%= @booking.pet.owner %></p>
+<!-- <p>Pics: <%= @booking.pet.photos.first %></p>
+ -->
+<p>Start date: <%= @booking.start_date %></p>
+<p>End date: <%= @booking.end_date %></p>
+
+<p>Total price: <%= @booking.total_price %></p>
+
+<%= link_to "Back to pet's profile", pet_path(@booking.pet) %>
