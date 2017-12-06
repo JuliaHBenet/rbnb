@@ -1,8 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= render 'shared/banner' %>
+
 
 <% if registration_signed_in? %>
-  <p> hello <%= current_user.first_name %></p>
+  <p> hello pierre <%= current_user.first_name %></p>
 <% else %>
-  <p>Please sign in</p>
 <% end %>
+
+<%= render 'shared/footer'  %>
