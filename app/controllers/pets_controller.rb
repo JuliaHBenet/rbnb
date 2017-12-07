@@ -6,9 +6,9 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.where.not(latitude: nil, longitude: nil)
 
-    @markers = Gmaps4rails.build_markers(@flats) do |flat, marker|
-      marker.lat flat.latitude
-      marker.lng flat.longitude
+    @markers = Gmaps4rails.build_markers(@pets) do |pet, marker|
+      marker.lat pet.latitude
+      marker.lng pet.longitude
     end
   end
 
@@ -54,7 +54,7 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :user, :category, :daily_price, :photo)
+    params.require(:pet).permit(:name, :user, :category, :daily_price, :photo, :address)
   end
 
   def set_pet
