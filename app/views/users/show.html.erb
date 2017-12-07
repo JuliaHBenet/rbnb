@@ -1,6 +1,8 @@
 <h1><%= @user.id %> - <%= @user.first_name %> <%= @user.last_name %></h1>
 <ul>
 
+<p><%= @pet %></p>
+
 <% if @user.owner %>
   <% @user.pets.each do |pet| %>
   <li>
