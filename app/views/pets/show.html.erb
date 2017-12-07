@@ -1,7 +1,13 @@
-<h1><%= @pet.name %></h1>
 
-<!-- photo
-link to book -->
+<!-- In case the pet hasn't got a photo -->
+<%  if @pet.photo == nil
+      @photo = 'https://static.pexels.com/photos/371633/pexels-photo-371633.jpeg'
+    end %>
+
+<!-- Show page of the pet -->
+
+<%= render 'shared/banner_pet_show', pet_name: @pet.name, pet_category: @pet.category.downcase, landscape_photo: "http://wallpapereasy.com/wp-content/uploads/2014/10/landscape-image-wallpaper-1920x1200.jpg", pet: @pet %>
+
 <%= link_to "Book now", new_pet_booking_path(@pet) %>
 
 
