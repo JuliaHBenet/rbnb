@@ -1,12 +1,6 @@
 <%= render 'shared/banner' %>
 
 
-<% if registration_signed_in? %>
-  <p> Hello <%= current_user.first_name %></p>
-<% else %>
-  <p> Hello, please sign in </p>
-<% end %>
-
 <!-- # %= link_to “Browse available pets”, pets_path, class: “btn btn-primary” %> -->
 <!-- # <= link_to “See all users”, users_path, {class: “btn btn-primary”} %> -->
 
