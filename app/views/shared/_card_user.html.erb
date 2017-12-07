@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="edit-profile">
+    <% if current_user == @user %>
+      <%= link_to "Edit profile", edit_users_path, class: "btn btn-primary" %>
+    <% end %>
+</div>
+<h1>Hello <%= @user.first_name %> <%= @user.last_name %>!</h1>
+
+  <h2>Your bookings: </h2>
+<!--   <div class="row">
+    <div class="card-u">
+      <img class="card-user" src="">
+      <div class="card-description">
+        <div class="col-xs-12 col-sm-4">
+          <% @user.pets.each do |pet| %>
+            <h2>
+              <%= link_to pet.name.capitalize, pet_path(pet) %>
+            </h2>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <h2>Your pets: </h2>
+  <div class="row">
+    <% if @user.owner %>
+    <% @user.pets.each do |pet| %>
+    <div class="col-xs-12 col-sm-4">
+        <div class="card-u" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('http://cdn1-www.dogtime.com/assets/uploads/2011/03/puppy-development-300x200.jpg');">
+          <div class="card-category">Dog</div>
+          <div class="card-description">
+            <h2>Laika</h2>
+            <p>14 Feb - 16 Feb</p>
+          </div>
+          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+          <%= link_to "", pet_path, class: "card-link" %>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <% if current_user == @user %>
+    <%= link_to "Add a pet", new_pet_path, class: "btn btn-primary" %>
+  <% end %>
+  <br>
+  <br>
+  <%= link_to "Back to all", users_path, class: "btn btn-primary" %>
+</div>
+
+
