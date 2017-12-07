@@ -5,4 +5,5 @@ class Pet < ApplicationRecord
   validates :name, presence: true
   validates :category, presence: true
   validates_numericality_of :daily_price, only_integer: true
+  has_attachment :photo
 end
