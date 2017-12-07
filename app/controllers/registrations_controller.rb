@@ -2,7 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super do
-      User.create(registration_id: resource.id, first_name: "No_first_name", last_name: "No_last_name", photo: "http://lorempixel.com/400/200/" )
+      User.create(registration_id: resource.id, first_name: "No_first_name", last_name: "No_last_name", photo: "" )
     end
   end
 

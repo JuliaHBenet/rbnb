@@ -2,7 +2,7 @@ class User < ApplicationRecord
   belongs_to :registration
   has_many :pets
   has_many :bookings
-  validates :first_name, presence: true, on: :update
-  validates :last_name, presence: true, on: :update
+  has_attachment :photo
+  validates :first_name, :last_name, presence: true, on: :update
 
 end
