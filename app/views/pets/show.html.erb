@@ -1,3 +1,4 @@
+
 <!-- In case the pet hasn't got a photo -->
 <%  if @pet.photo == nil
       @photo = 'https://static.pexels.com/photos/371633/pexels-photo-371633.jpeg'
@@ -9,8 +10,10 @@
 
 <%= link_to "Book now", new_pet_booking_path(@pet) %>
 
+
 <%= link_to "Back to all", pets_path %>
 
 <% if current_user == @user %>
   <%= link_to "Edit pet's profile", edit_pet_path(@pet) %>
 <% end %>
+
