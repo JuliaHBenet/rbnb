@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     current_user.save
     @booking.pet = @pet
+    @booking[:total_price] = @pet.daily_price * (@booking.end_date - @booking.start_date).to_i
     @pet.save
     if @booking.save
       redirect_to pet_booking_path(@pet, @booking)
