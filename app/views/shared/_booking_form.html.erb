@@ -1,0 +1,6 @@
+<%= simple_form_for [@pet, @booking] do |f| %>
+<%= f.input :start_date, as: :date %>
+<%= f.input :end_date, as: :date %>
+<%= f.submit "Confirm booking", class: "btn btn-success" %>
+<% end %>
+<%= link_to "Back to pet profile", pet_path(@pet), class: "btn btn-danger"%>
