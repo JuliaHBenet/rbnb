@@ -5,7 +5,11 @@
     <h2>Laika</h2>
     <p>14 Feb - 16 Feb</p>
   </div>
-  <img class="card-u-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  <% if current_user.photo? %>
+          <%= cl_image_tag current_user.photo.path, class: "card-u-user" %>
+        <% else %>
+          <%= image_tag current_user.facebook_picture_url, class: "card-u-user" %>
+        <% end %>
   <%= link_to '', pet_path(resource), class: "card-u-link" %>
 </div>
 
