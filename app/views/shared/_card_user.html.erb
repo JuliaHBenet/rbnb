@@ -1,8 +1,8 @@
 
-<div class="card-u" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/d/domestic-dog_thumb.jpg');">
-  <div class="card-u-category">Dog</div>
+<div class="card-u" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('<%= cl_image_path pet.photo.path, height: 210, width: 360, crop: :fill %>');">
+  <div class="card-u-category"><%= pet.category %></div>
   <div class="card-u-description">
-    <h2>Laika</h2>
+    <h2><%= pet.name %></h2>
     <p>14 Feb - 16 Feb</p>
   </div>
   <% if current_user.photo? %>
@@ -10,6 +10,7 @@
         <% else %>
           <%= image_tag current_user.facebook_picture_url, class: "card-u-user" %>
         <% end %>
-  <%= link_to '', pet_path(resource), class: "card-u-link" %>
+  <%= link_to '', pet_path(pet), class: "card-u-link" %>
 </div>
 
+<!-- https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/d/domestic-dog_thumb.jpg -->
