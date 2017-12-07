@@ -8,6 +8,16 @@
 
 <%= render 'shared/banner_pet_show', pet_name: @pet.name, pet_category: @pet.category.downcase, landscape_photo: "http://wallpapereasy.com/wp-content/uploads/2014/10/landscape-image-wallpaper-1920x1200.jpg", pet: @pet %>
 
+<div class="container">
+  <% if @pet.photo %>
+    <%= cl_image_tag @pet.photo.path %>
+  <% else %>
+    <img src="https://unsplash.com/photos/8MbdD0pHXGY" alt="">
+    <% end %>
+</div>
+
+
+
 <%= link_to "Book now", new_pet_booking_path(@pet) %>
 
 
