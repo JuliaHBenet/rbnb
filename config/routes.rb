@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'registrations/omniauth_callbacks'
   }
 
+  mount Attachinary::Engine => "/attachinary"
+
   root to: 'pages#home'
 
   # devise_for :registrations,
