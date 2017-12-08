@@ -19,26 +19,29 @@
       <%= link_to "Add a pet", new_pet_path, class: "btn btn-primary" %>
     <% end %>
   </div>
-  <div class="bookings-container-first">
-    <h2>Booking requests </h2>
+  <% if @bookings %>
+    <div class="bookings-container-first">
+      <h2>Booking requests for your pets </h2>
+      <div class="row bookings-container">
+        <div class="col-xs-12">
+          <% @bookings.each do |booking| %>
+            <%= render 'shared/card_booking_messages', booking: booking %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+<% if current_user.bookings.any? %>
+  <h2>Your bookings </h2>
     <div class="row bookings-container">
       <div class="col-xs-12">
-        <% Booking.where(:user_id == @user.id).each do |booking| %>
-          <%= render 'shared/card_booking_messages', booking: booking %>
+        <% current_user.bookings.each do |booking| %>
+          <%= render 'shared/card_booked_messages', booking: booking %>
         <% end %>
       </div>
     </div>
   </div>
-
-  <h2>Your bookings </h2>
-  <div class="row bookings-container">
-    <div class="col-xs-12">
-      <% Booking.where(:user_id == @user.id).each do |booking| %>
-        <%= render 'shared/card_booked_messages', booking: booking %>
-      <% end %>
-    </div>
-  </div>
-</div>
-
+<% end %>
 
 

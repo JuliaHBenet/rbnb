@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   before_action :set_user, only:[:show, :create, :destroy, :accept, :decline]
 
   def index
-    @bookings = Booking.all.where("DATE(end_date) >= ?", Date.today)
+    @bookings = Booking.all.where("DATE(end_date) >= ?", Date.today).where.not(status: "declined")
   end
 
   def show
