@@ -26,7 +26,7 @@ class PetsController < ApplicationController
     current_user.owner = true
     current_user.save
     if @pet.save
-      redirect_to pet_path(@pet)
+      redirect_to user_path(@user)
     else
       render :new
     end
