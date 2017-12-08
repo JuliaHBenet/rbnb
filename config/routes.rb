@@ -6,6 +6,13 @@ Rails.application.routes.draw do
     resources :bookings, only: [ :index, :show, :new, :create, :destroy ]
   end
 
+  resources :bookings do
+    member do
+      patch 'accept', to: 'bookings#accept'
+      patch 'decline', to: 'bookings#decline'
+    end
+  end
+
   devise_for :registrations, :controllers => {
     registrations: "registrations",
     omniauth_callbacks: 'registrations/omniauth_callbacks'

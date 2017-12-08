@@ -6,28 +6,31 @@
   </div>
   <%= link_to "", pet_path(booking) %>
   <div class="message-name">
-    <h3><%= booking.user.first_name %> <%= booking.user.last_name %></h3>
-    <p>10/07/17</p>
+    <h5><%= booking.user.first_name %> <%= booking.user.last_name %></h5>
   </div>
   <div class="message-body">
-    <p>
+    <h5>
       <%= booking.user.first_name %> <%= booking.user.last_name %> made a booking request for <%= booking.pet.name %>!
-    </p>
+    </h5>
   </div>
   <div class="message-status">
-      <% if  booking.status == 2 %>
-        <% status = "Denied" %>
-        <% statusclass = "denied" %>
-      <% elsif booking.status == 1 %>
-        <% status = "Accepted" %>
-        <% statusclass = "accepted" %>
-      <% else %>
-        <% status = "Pending" %>
-        <% statusclass = "pending" %>
-      <% end %>
-      <p class=statusclass>Booking status: <%= status %></p>
-    <p class="price">Booking price: <%= booking.total_price %></p>
-
+    <% if  booking.status == 2 %>
+      <% status = "Denied" %>
+      <% statusclass = "denied" %>
+    <% elsif booking.status == 1 %>
+      <% status = "Accepted" %>
+      <% statusclass = "accepted" %>
+    <% else %>
+      <% status = "Pending" %>
+      <% statusclass = "pending" %>
+    <% end %>
+    <h5>Booking status: <h6 class=<%= statusclass %>><strong><%= status %></strong> </h6></h5>
+    <h5 class="price">Booking price: <strong>€<%= booking.total_price %></strong></h5>
+    <div class="buttons">
+      <%= button_to "Accept", accept_booking_path(booking), class:"btn button accept", method: :patch %>
+      <%= button_to "Decline", decline_booking_path(booking), class:"btn btn-danger button", method: :patch %>
+    </div>
   </div>
+  <span></span>
 </div>
 

@@ -1,14 +1,66 @@
+#profile_btn {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}
+
+.pet-container {
+  margin-bottom: 90px;
+  border-bottom: 1px solid black;
+  padding: 50px 0px;
+}
+
+.edit-profile {
+  position: relative;
+  border-bottom: 1px solid black;
+
+}
+
 .image-cropper {
   width: 100px;
   height: 100px;
   overflow: hidden;
   border-radius: 50%;
   position: relative;
+  margin-right: 20px;
+}
+
+.buttons {
+  display: flex;
+}
+
+.pending {
+  color: gray;
+}
+
+.accepted {
+  color: green;
+}
+
+.denied {
+  color: red;
+}
+
+.button {
+  margin: 1px;
+}
+
+.accept {
+  background-color: #267149;
+  color: white;
 }
 
 .bookings-container {
   border: 2px solid black;
   padding: 10px;
+  margin-bottom: 60px;
+  margin-top: 35px;
+}
+
+.bookings-container-first {
+  border-bottom: 1px solid black;
+  margin-bottom: 80px;
+  padding-bottom: 50px;
 }
 
 .bookings-element:hover {
@@ -26,11 +78,12 @@
   display: flex;
   align-items: center;
   padding: 20px;
+
   border-bottom: 1px solid rgba(220,224,244,0.4);
 }
-.message:last-child {
-  border-bottom: none;
-}
+// .message:last-child {
+//   border-bottom: none;
+// }
 .message-body {
   flex-grow: 1;
 }
@@ -68,15 +121,15 @@
   font-size: 14px;
   font-weight: bold;
 }
-.status.accepted {
-  color: #04A366;
-}
-.status.declined {
-  color: red;
-}
-.status.pending {
-  color: lightgrey;
-}
+// .status.accepted {
+//   color: #04A366;
+// }
+// .status.declined {
+//   color: red;
+// }
+// .status.pending {
+//   color: lightgrey;
+// }
 .avatar-large {
   border-radius: 50%;
   max-height: 90px;
