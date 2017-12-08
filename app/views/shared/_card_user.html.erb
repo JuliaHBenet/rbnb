@@ -1,15 +1,15 @@
-
 <div class="card-u" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('<%= cl_image_path pet.photo.path, height: 210, width: 360, crop: :fill %>');">
   <div class="card-u-category"><%= pet.category %></div>
   <div class="card-u-description">
     <h2><%= pet.name %></h2>
-    <p>14 Feb - 16 Feb</p>
   </div>
-  <% if current_user.photo? %>
-          <%= cl_image_tag current_user.photo.path, class: "card-u-user" %>
-        <% else %>
-          <%= image_tag current_user.facebook_picture_url, class: "card-u-user" %>
-        <% end %>
+  <div class="card-avatar">
+    <% if current_user.photo? %>
+        <%= cl_image_tag current_user.photo.path, class:"card-u-user" %>
+    <% else %>
+      <%= image_tag current_user.facebook_picture_url, class:"card-u-user" %>
+    <% end %>
+  </div>
   <%= link_to '', pet_path(pet), class: "card-u-link" %>
 </div>
 

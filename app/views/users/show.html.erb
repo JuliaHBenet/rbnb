@@ -14,16 +14,16 @@
       <% @user.pets.each do |pet| %>
         <%= render 'shared/card_user', pet: pet%>
       <% end %>
-    <% end %>
     </div>
+    <% end %>
   </div>
   <% if current_user == @user %>
     <%= link_to "Add a pet", new_pet_path, class: "btn btn-primary" %>
   <% end %>
 
-  <h2>Your bookings: </h2>
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-10">
+  <h2>Booking requests: </h2>
+  <div class="row bookings-container">
+    <div class="col-xs-12">
       <% Booking.where(:user_id == @user.id).each do |booking| %>
         <h2>
         <%= render 'shared/card_booking_messages', booking: booking %>
@@ -32,17 +32,17 @@
     </div>
   </div>
 
-  <h2> Booking requests: </h2>
 
-    <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-10">
-      <% Booking.where(:user_id == @user.id).each do |booking| %>
-        <h2>
-        <%= render 'shared/card_booked_messages', booking: booking %>
-        </h2>
-      <% end %>
-    </div>
+  <h2>Your bookings: </h2>
+  <div class="row bookings-container">
+  <div class="col-xs-12">
+    <% Booking.where(:user_id == @user.id).each do |booking| %>
+      <h2>
+      <%= render 'shared/card_booked_messages', booking: booking %>
+      </h2>
+    <% end %>
   </div>
+</div>
 
    <!-- Booking.where(:pet_id == @user.pet.id).each do |booking| %> -->
    <!-- Booking.where(:pet_id == @pet.id).each do |booking| %> -->

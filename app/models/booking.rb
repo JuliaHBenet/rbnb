@@ -4,8 +4,4 @@ class Booking < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
 
-  def total_price
-    self.total_price = self.pet.daily_price * (((end_date - start_date).to_i) - 1)
-    self.save
-  end
 end

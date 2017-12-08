@@ -1,21 +1,33 @@
 <!-- Bookings user made -->
 
-<div class="message">
-  <img class="avatar-large" src="http://www.theimprovnetwork.org/wp-content/uploads/dog-07.jpg">
+<div class="message bookings-element">
+  <div class="image-cropper">
+    <%= cl_image_tag booking.pet.photo.path, class:"dog-img"%>
+  </div>
   <%= link_to "", pet_path(booking) %>
   <div class="message-name">
-    <h3><%= booking.user %></h3>
+    <h3><%= booking.user.first_name %> <%= booking.user.last_name %></h3>
     <p>10/07/17</p>
   </div>
   <div class="message-body">
-    <p><strong>I am not sure yet!</strong></p>
     <p>
-      I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
+      <%= booking.user.first_name %> <%= booking.user.last_name %> made a booking request for <%= booking.pet.name %>!
     </p>
   </div>
   <div class="message-status">
-    <p class="status pending">Pending</p>
-    <p class="price">€345</p>
+      <% if  booking.status == 2 %>
+        <% status = "Denied" %>
+        <% statusclass = "denied" %>
+      <% elsif booking.status == 1 %>
+        <% status = "Accepted" %>
+        <% statusclass = "accepted" %>
+      <% else %>
+        <% status = "Pending" %>
+        <% statusclass = "pending" %>
+      <% end %>
+      <p class=statusclass>Booking status: <%= status %></p>
+    <p class="price">Booking price: <%= booking.total_price %></p>
+
   </div>
 </div>
 

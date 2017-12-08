@@ -1,3 +1,27 @@
+.image-cropper {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+}
+
+.bookings-container {
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.bookings-element:hover {
+  background: $light-pink;
+}
+
+.dog-img {
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
 .message {
   display: flex;
   align-items: center;
