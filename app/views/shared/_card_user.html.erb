@@ -9,8 +9,10 @@
   <div class="card-avatar">
     <% if current_user.photo? %>
         <%= cl_image_tag current_user.photo.path, class:"card-u-user" %>
-    <% else %>
+    <% elsif %>
       <%= image_tag current_user.facebook_picture_url, class:"card-u-user" %>
+    <% else %>
+       <%= image_tag "logo-dog.png", class:"card-u-user" %>
     <% end %>
   </div>
   <%= link_to '', pet_path(pet), class: "card-u-link" %>
