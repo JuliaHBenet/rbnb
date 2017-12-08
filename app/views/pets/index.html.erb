@@ -1,12 +1,16 @@
 <div class="main-container">
-  <h1>Available pets</h1>
-  <div class="cards-container">
-    <% @pets.each do |pet| %>
-      <div class="col-xs-12 col-sm-6">
-          <%= render 'shared/card_user', pet: pet%>
-      </div>
-    <% end %>
-  </div>
+  <div class="row cards-container">
+    <div class="col-xs-12 col-sm-12">
+      <h1>Available pets</h1>
+    </div>
+    <div class="cards">
+      <% @pets.each do |pet| %>
+        <div class="col-xs-12 col-sm-6">
+            <%= render 'shared/card_user', pet: pet%>
+        </div>
+      <% end %>
+     </div>
+    </div>
   <div id="map">
     <%= render 'shared/map' %>
   </div>
