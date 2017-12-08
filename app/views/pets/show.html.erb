@@ -1,24 +1,4 @@
 
-
-<%= render 'shared/banner_pet_show', pet_name: @pet.name, pet_category: @pet.category.downcase, landscape_photo: "http://wallpapereasy.com/wp-content/uploads/2014/10/landscape-image-wallpaper-1920x1200.jpg", pet: @pet %>
-
-
-<div class="container">
-  <% if @pet.photo %>
-    <%= cl_image_tag @pet.photo.path %>
-  <% else %>
-    <img src="https://unsplash.com/photos/8MbdD0pHXGY" alt="">
-    <% end %>
+<div class="banner-wrap">
+  <%= render 'shared/banner_pet_show', pet_name: @pet.name.upcase, pet_category: @pet.category.downcase, landscape_photo: "http://cdn.thedesigninspiration.com/wp-content/uploads/2012/11/Paw-Print-l.jpg", pet: @pet %>
 </div>
-
-
-
-<%= link_to "Book now", new_pet_booking_path(@pet) %>
-
-
-<%= link_to "Back to all", pets_path %>
-
-<% if current_user == @user %>
-  <%= link_to "Edit pet's profile", edit_pet_path(@pet) %>
-<% end %>
-
