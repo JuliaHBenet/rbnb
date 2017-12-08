@@ -1,13 +1,16 @@
-<h1>Here are all the pets available</h1>
-<ul>
-  <% @pets.each do |pet| %>
-  <li>
-    <h2>
-      <%= link_to pet.name, pet_path(pet) %>
-    </h2>
-  </li>
-  <% end %>
-</ul>
+<div class="main-container">
+  <h1>Available pets</h1>
+  <div class="cards-container">
+    <% @pets.each do |pet| %>
+      <div class="col-xs-12 col-sm-6">
+          <%= render 'shared/card_user', pet: pet%>
+      </div>
+    <% end %>
+  </div>
+  <div id="map">
+    <%= render 'shared/map' %>
+  </div>
+</div>
 
-<%= render 'shared/map' %>
+
 
