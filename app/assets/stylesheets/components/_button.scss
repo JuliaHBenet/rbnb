@@ -1,0 +1,38 @@
+
+a {
+ font-family: ‘Barlow Semi Condensed’, sans-serif;
+}
+
+.dog-btn {
+  background-color: #FFE68E;
+  color: #005E5F;
+  padding: 20px;
+  display: inline-block;
+  border-radius: 5px;
+  font-weight: 700;
+  box-shadow: 2px 2px 4px lightgrey;
+  position: relative;
+  background-size: 10px 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+a.dog-btn {
+  text-decoration: none;
+}
+
+.dog-btn span {
+   font-weight:bold;
+}
+
+.dog-btn::after {
+  display: block;
+  border: 2px solid #005E5F ;
+  height: 107%;
+  top:-3px;
+  transform:rotate(3deg);
+  width:105%;
+  position:absolute;
+  content: “”;
+  left: -5px;
+}
