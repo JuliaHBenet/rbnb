@@ -1,4 +1,4 @@
-<div class="card-u" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('<%= cl_image_path pet.photo.path, height: 210, width: 360, crop: :fill %>');">
+<div class="card-u" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('<%= cl_image_path pet.photo.path, height: 210, width: 360, crop: :fill if pet.photo%>');">
   <div class="card-u-category"><%= pet.category %></div>
   <div class="card-u-description">
     <h2><%= pet.name %></h2>
