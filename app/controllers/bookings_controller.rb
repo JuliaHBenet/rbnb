@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only:[:show, :destroy]
+  before_action :set_booking, only:[:show, :destroy, :accept, :decline]
   before_action :set_pet, only:[:show, :new, :create, :destroy]
-  before_action :set_user, only:[:show, :create, :destroy]
+  before_action :set_user, only:[:show, :create, :destroy, :accept, :decline]
 
   def index
     @bookings = Booking.all.where("DATE(end_date) >= ?", Date.today)
@@ -28,8 +28,21 @@ class BookingsController < ApplicationController
     end
   end
 
-  # def destroy
-  # end
+  def accept
+    @booking.status = 1
+    @booking.save
+    redirect_to user_path(@user)
+  end
+
+  def decline
+    @booking.status = 2
+    @booking.save
+    redirect_to user_path(@user)
+  end
+
+  def destroy
+
+  end
 
   private
 

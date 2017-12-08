@@ -1,21 +1,33 @@
+<!-- Bookings user made -->
 
-<!-- Booking for your pets other users made -->
-
-<div class="message">
-  <img class="avatar-large" src="https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/d/domestic-dog_thumb.jpg">
+<div class="message bookings-element">
+  <div class="image-cropper">
+    <%= cl_image_tag booking.pet.photo.path, class:"dog-img"%>
+  </div>
   <%= link_to "", pet_path(booking) %>
   <div class="message-name">
-    <h3>Gab Dehan</h3>
-    <p>10/07/17</p>
+    <h5><%= booking.pet.name %></h5>
+    <h6><%= booking.pet.category %></h6>
   </div>
   <div class="message-body">
-    <p><strong>I am not sure yet!</strong></p>
-    <p>
-      I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
-    </p>
+    <h5>
+    You requested <%= booking.user.first_name %> <%= booking.user.last_name %> to borrow <%= booking.pet.name %>!
+    </h5>
   </div>
   <div class="message-status">
-    <p class="status pending">Pending</p>
-    <p class="price">€345</p>
+    <% if  booking.status == 2 %>
+      <% status = "Denied" %>
+      <% statusclass = "denied" %>
+    <% elsif booking.status == 1 %>
+      <% status = "Accepted" %>
+      <% statusclass = "accepted" %>
+    <% else %>
+      <% status = "Pending" %>
+      <% statusclass = "pending" %>
+    <% end %>
+    <h5>Booking status: <h6 class=<%= statusclass %>><strong><%= status %></strong> </h6></h5>
+    <h5 class="price">Booking price: <strong>€<%= booking.total_price %></strong></h5>
   </div>
+  <span></span>
 </div>
+
