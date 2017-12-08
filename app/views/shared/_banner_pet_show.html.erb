@@ -1,7 +1,29 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= landscape_photo %>');">
   <div class="banner-content">
+     <div class="inner-element">
+      <% if @pet.photo %>
+        <%= cl_image_tag @pet.photo.path, class: "im2" %>
+      <% else %>
+        <img class="im2" src="https://unsplash.com/photos/8MbdD0pHXGY" alt="">
+      <% end %>
+    </div>
     <h1><%= pet_name %></h1>
     <p>Your next <%= pet_category %></p>
-    <div class="btn btn-warning btn-lg white-text"><%= link_to "Request #{pet.user.first_name} a booking", new_pet_booking_path(pet)%></div>
+
+    <%= simple_form_for [@pet, @booking] do |f| %>
+      <%= f.input :start_date, as: :date %>
+      <%= f.input :end_date, as: :date %>
+      <%= f.submit "Confirm booking", class: "btn btn-success" %>
+      <% end %>
+
+<!--     <div class="btn btn-warning btn-lg white-text">
+      <= link_to "Request #{pet.user.first_name} a booking", new_pet_booking_path(pet)%></div>
+    <div> -->
+      <%= link_to "Back to all pets", pets_path, class: "btn btn-primary" %>
+
+      <% if current_user == @user %>
+        <%= link_to "Edit pet's profile", edit_pet_path(@pet), class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>
