@@ -3,6 +3,9 @@
   <div class="card-u-description">
     <h2><%= pet.name %></h2>
   </div>
+  <div class="card-u-daily-price">
+    <p>€<%= pet.daily_price %>/day</p>
+  </div>
   <div class="card-avatar">
     <% if current_user.photo? %>
         <%= cl_image_tag current_user.photo.path, class:"card-u-user" %>
