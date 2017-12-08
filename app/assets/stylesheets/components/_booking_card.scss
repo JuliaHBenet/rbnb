@@ -1,0 +1,34 @@
+
+p {
+  font-size: 22px;
+}
+
+h1 {
+  color: #005E5F;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+
+.booking-content {
+  height: 80vh;
+  padding-top: 10vh;
+}
+
+.wrapper {
+  min-height: 100vh;
+}
+
+.booking-content .row {
+  height: 80vh;
+}
+.info {
+  display: flex;
+  justify-content: center;
+}
+.info1 {
+  width: 40%;
+}
+.info2 {
+  width: 40%;
+}
